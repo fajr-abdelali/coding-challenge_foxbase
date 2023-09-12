@@ -66,6 +66,26 @@ button:focus-visible {
   text-align: center;
 }
 
+.pages{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pages>span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgb(139, 36, 36);
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
+}
+.pages>span.active{
+  background-color: rgb(235, 61, 61);
+}
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

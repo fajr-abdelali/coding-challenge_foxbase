@@ -5,9 +5,8 @@ interface OptionType {
 }
 
 interface Questionnaire {
-    [key: string]: {
-        type: string;
-        text: string;
-        options: OptionType[];
-    };
+    name: string;
+    type: string;
+    text: string;
+    options: OptionType[];
 }

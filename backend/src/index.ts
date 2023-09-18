@@ -7,9 +7,13 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 
 // The GraphQL schema
-const typeDefs = `#graphql
+const typeDefs = `
   type Query {
     hello: String
+  }
+
+  type Mutation {
+    dummyMutation: String
   }
 `;
 
@@ -18,6 +22,21 @@ const resolvers = {
   Query: {
     hello: () => 'world',
   },
+  Mutation: {
+    dummyMutation: () => 'This is a dummy mutation',
+    calculateRecommendations: (_:any, {matrix}:{ matrix:any }) => {
+      console.log('Received matrix:', matrix)
+      // Perform the matrix-vector multiplication logic and return the result
+      // const result = calculateMatrixRecommendations(args.matrix);
+      return matrix;
+    },
+  },
+};
+
+const calculateMatrixRecommendations = (matrix) => {
+  // Perform the matrix calculation and generate recommendations based on the given logic
+  // ... your calculation logic
+  return matrix
 };
 
 async function main() {

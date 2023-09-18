@@ -1,138 +1,146 @@
 {
-    "start": {
-        "type": "choice",
-        "text": "scope of application",
-        "options": [
-            {
-                "id": 1,
-                "text": "outside",
-                "next": "underground"
-            },
-            {
-                "id": 2,
-                "text": "within",
-                "next": "underground"
-            }
-        ]
-    },
-    "underground": {
-        "type": "choice",
-        "text": "underground",
-        "options": [
-            {
-                "id": 1,
-                "text": "wood",
-                "next": "opacity"
-            },
-            {
-                "id": 2,
-                "text": "facade",
-                "next": "opacity"
-            },
-            {
-                "id": 3,
-                "text": "mat",
-                "next": "opacity"
-            },
-            {
-                "id": 4,
-                "text": "putz",
-                "next": "opacity"
-            }
-        ]
-    },
-    "opacity": {
-        "type": "choice",
-        "text": "do you know about opacity",
-        "options": [
-            {
-                "id": 1,
-                "text": "yes",
-                "next": "strong"
-            },
-            {
-                "id": 2,
-                "text": "no",
-                "next": "which_underground"
-            }
-        ]
-    },
-    "strong": {
-        "type": "choice",
-        "text": "how strong?",
-        "options": [
-            {
-                "id": 1,
-                "text": "<95",
-                "next": "hue"
-            },
-            {
-                "id": 2,
-                "text": "95",
-                "next": "hue"
-            },
-            {
-                "id": 3,
-                "text": "98",
-                "next": "hue"
-            },
-            {
-                "id": 4,
-                "text": ">99.5",
-                "next": "hue"
-            }
-        ]
-    },
-    "which_underground": {
-        "type": "choice",
-        "text": "do you know about opacity",
-        "options": [
-            {
-                "id": 1,
-                "text": "rather",
-                "next": "hue"
-            },
-            {
-                "id": 2,
-                "text": "darker",
-                "next": "hue"
-            }
-        ]
-    },
-    "hue": {
-        "type": "choice",
-        "text": "do you know about opacity",
-        "options": [
-            {
-                "id": 1,
-                "text": "red",
-                "next": ""
-            },
-            {
-                "id": 2,
-                "text": "blue",
-                "next": "blue"
-            },
-            {
-                "id": 3,
-                "text": "green",
-                "next": "green"
-            },
-            {
-                "id": 4,
-                "text": "yellow",
-                "next": ""
-            },
-            {
-                "id": 5,
-                "text": "black",
-                "next": ""
-            },
-            {
-                "id": 6,
-                "text": "white",
-                "next": ""
-            }
-        ]
-    }
+    "pages": [
+        {
+            "name": "start",
+            "type": "choice",
+            "text": "scope of application",
+            "options": [
+                {
+                    "id": 1,
+                    "text": "outside",
+                    "next": "underground"
+                },
+                {
+                    "id": 2,
+                    "text": "within",
+                    "next": "underground"
+                }
+            ]
+        },
+        {
+            "name": "underground",
+            "type": "choice",
+            "text": "underground",
+            "options": [
+                {
+                    "id": 1,
+                    "text": "wood",
+                    "next": "opacity"
+                },
+                {
+                    "id": 2,
+                    "text": "facade",
+                    "next": "opacity"
+                },
+                {
+                    "id": 3,
+                    "text": "mat",
+                    "next": "opacity"
+                },
+                {
+                    "id": 4,
+                    "text": "putz",
+                    "next": "opacity"
+                }
+            ]
+        },
+        {
+            "name": "opacity",
+            "type": "choice",
+            "text": "do you know about opacity",
+            "options": [
+                {
+                    "id": 1,
+                    "text": "yes",
+                    "next": "strong"
+                },
+                {
+                    "id": 2,
+                    "text": "no",
+                    "next": "which_underground"
+                }
+            ]
+        },
+        {
+            "name": "strong",
+            "type": "choice",
+            "text": "how strong?",
+            "options": [
+                {
+                    "id": 1,
+                    "text": "<95",
+                    "next": "hue"
+                },
+                {
+                    "id": 2,
+                    "text": "95",
+                    "next": "hue"
+                },
+                {
+                    "id": 3,
+                    "text": "98",
+                    "next": "hue"
+                },
+                {
+                    "id": 4,
+                    "text": ">99.5",
+                    "next": "hue"
+                }
+            ]
+        },
+        {
+            "name": "which_underground",
+            "type": "choice",
+            "text": "do you know about opacity",
+            "options": [
+                {
+                    "id": 1,
+                    "text": "rather",
+                    "next": "hue"
+                },
+                {
+                    "id": 2,
+                    "text": "darker",
+                    "next": "hue"
+                }
+            ]
+        },
+        {
+            "name": "hue",
+            "type": "choice",
+            "text": "do you know about opacity",
+            "options": [
+                {
+                    "id": 1,
+                    "text": "red",
+                    "next": ""
+                },
+                {
+                    "id": 2,
+                    "text": "blue",
+                    "next": "blue"
+                },
+                {
+                    "id": 3,
+                    "text": "green",
+                    "next": "green"
+                },
+                {
+                    "id": 4,
+                    "text": "yellow",
+                    "next": ""
+                },
+                {
+                    "id": 5,
+                    "text": "black",
+                    "next": ""
+                },
+                {
+                    "id": 6,
+                    "text": "white",
+                    "next": ""
+                }
+            ]
+        }
+    ]
 }

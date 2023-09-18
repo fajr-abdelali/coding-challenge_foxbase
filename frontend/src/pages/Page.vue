@@ -5,38 +5,36 @@ import { RootState } from '@/store';
 import { Questionnaire } from '@/types';
 import Option from '../components/Option/Option.vue';
 import questionnaireJson from '../questionnaire.json';
+import { useRouter } from 'vue-router';
 
-const store = useStore<RootState>();
-const currentQuestionId = computed(() => store.state.user.currentQuestionId);
-const userResponses = computed(() => store.state.user.responses);
+
+const $store = useStore<RootState>();
+const $currentQuestionName = computed(() => $store.state.user.currentQuestionName);
 const questionnaire: Questionnaire = questionnaireJson;
+const router = useRouter();
 
 const currentPage = computed(() => {
-  console.log(questionnaire[currentQuestionId.value])
-  return questionnaire[currentQuestionId.value];
+  return questionnaire.pages.find(q => q.name === $currentQuestionName.value);
 });
 
 const goToNextQuestion = (selectedOption: OptionType) => {
-  if (selectedOption) {
-    store.commit('updateCurrentQuestion', selectedOption.next);
-    store.commit('updateResponse', {
-      questionId: currentQuestionId.value,
+  if (selectedOption.next) {
+    $store.commit('updateCurrentQuestion', selectedOption.next);
+    $store.commit('updateResponse', {
+      questionId: $currentQuestionName.value,
       response: (selectedOption.id - 1),
     });
-  }else{
-    serviceMatrix()
+    router.push({ name: 'catchAll',path:selectedOption.next});
+  } else {
+    router.push({ name: 'suggestions' });
   }
 
 }
 
-const serviceMatrix = () => {
-  console.log('service')
-}
 
 
 </script>
 <template>
-  <h1>{{ currentPage.text }}</h1>
-  <Option @answer="goToNextQuestion" :optionsArray="currentPage.options"></Option>
-  <pre>{{ userResponses }}</pre>
+  <h1>{{ currentPage?.text }}</h1>
+  <Option @answer="goToNextQuestion" :optionsArray="currentPage?.options"></Option>
 </template>

@@ -5,39 +5,33 @@ import express from 'express';
 import http from 'http';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import { GraphQLResolveInfo } from 'graphql';
 
 // The GraphQL schema
 const typeDefs = `
-  type Query {
-    hello: String
-  }
+type Query {
+  hello: String
+}
 
   type Mutation {
-    dummyMutation: String
-  }
+    calculateMatrixRecommendations(matrix: [Int!]!):Boolean
+  }  
 `;
 
 // A map of functions which return data for the schema.
 const resolvers = {
-  Query: {
-    hello: () => 'world',
-  },
   Mutation: {
-    dummyMutation: () => 'This is a dummy mutation',
-    calculateRecommendations: (_:any, {matrix}:{ matrix:any }) => {
+    calculateMatrixRecommendations: (_: any, { matrix }: { matrix: number[] }) => {
       console.log('Received matrix:', matrix)
       // Perform the matrix-vector multiplication logic and return the result
-      // const result = calculateMatrixRecommendations(args.matrix);
-      return matrix;
+      // const result = calculateMatrixRecommendations(matrix);
+      const result = matrix.map(n=> n>0);
+      return true;
     },
   },
 };
 
-const calculateMatrixRecommendations = (matrix) => {
-  // Perform the matrix calculation and generate recommendations based on the given logic
-  // ... your calculation logic
-  return matrix
-};
+
 
 async function main() {
   const app = express();

@@ -11,15 +11,15 @@ interface UserState {
 const state: UserState = {
   progress: {},
   currentQuestionName: 'start',
-  responses: {},  
+  responses: [],  
 };
 
 const mutations: MutationTree<UserState> = {
   updateCurrentQuestion(state, nextQuestionName: string) {
     state.currentQuestionName = nextQuestionName;
   },
-  updateResponse(state, { questionId, response }) {
-    state.responses[questionId] = response;
+  updateResponse(state, response:number) {
+    state.responses = [... state.responses,response];
   },
 };
 

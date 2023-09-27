@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useStore } from 'vuex';
 import { computed, ref } from 'vue';
-import { RootState } from '@/store';
-import { Questionnaire } from '@/types';
+import { RootState } from '../store/index';
+import { Questionnaire } from '../questionnaire.json';
 import Option from '../components/Option/Option.vue';
 import questionnaireJson from '../questionnaire.json';
 import { useRouter } from 'vue-router';

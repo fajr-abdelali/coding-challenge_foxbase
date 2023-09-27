@@ -20,7 +20,7 @@ const currentPage = computed(() => {
 const goToNextQuestion = (selectedOption: OptionType) => {
   if (selectedOption.next) {
     $store.commit('updateCurrentQuestion', selectedOption.next);
-    $store.commit('updateResponse', selectedOption.id - 1);
+    $store.commit('updateResponse', selectedOption.id);
     router.push({ name: 'catchAll',path:selectedOption.next});
   } else {
     router.push({ name: 'suggestions' });

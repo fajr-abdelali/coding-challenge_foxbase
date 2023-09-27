@@ -2,21 +2,30 @@ import { apolloClient } from '../graphql';
 import { gql } from 'graphql-tag';
 
 
-export async function serviceMatrix(matrix:number[]) {
+export async function serviceMatrix(matrix: number[]) {
   try {
-    
-    console.log(matrix)
     const response = await apolloClient.mutate({
       mutation: gql`
       mutation CalculateMatrixRecommendations($matrix: [Int!]!) {
-        calculateMatrixRecommendations(matrix: $matrix)
+        calculateMatrixRecommendations(matrix: $matrix){
+            id
+            title
+            price
+            description
+            category
+            image
+            rating {
+              rate
+              count
+            }
+        }
       }
       `,
       variables: {
         matrix: matrix
       },
     });
-    console.log('Response from server:', response.data.calculateRecommendations);
+    return response.data.calculateMatrixRecommendations
   } catch (error) {
     console.error('Error fetching data:', error);
   }

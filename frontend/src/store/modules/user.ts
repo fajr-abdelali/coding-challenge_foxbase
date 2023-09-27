@@ -5,7 +5,7 @@ import { RootState } from '@/store';
 interface UserState {
   progress: Record<string, any>;
   currentQuestionId: string;
-  responses: Record<string, any>;
+  responses: number[];
 }
 
 const state: UserState = {
@@ -19,7 +19,7 @@ const mutations: MutationTree<UserState> = {
     state.currentQuestionName = nextQuestionName;
   },
   updateResponse(state, response:number) {
-    state.responses = [... state.responses,response];
+    state.responses.push(response);
   },
 };
 
@@ -37,6 +37,7 @@ const userModule: Module<UserState, RootState> = {
   state,
   mutations,
   actions,
+  getters
 };
 
 export default userModule;
